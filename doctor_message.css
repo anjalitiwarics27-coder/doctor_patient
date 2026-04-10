@@ -1,0 +1,120 @@
+/* Body and container */
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f2f5;
+  padding: 20px;
+}
+
+.chat-container {
+  max-width: 600px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Heading */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Chat box */
+#chat-box {
+  height: 400px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Messages */
+.message {
+  padding: 10px 15px;
+  margin: 8px 0;
+  max-width: 75%;
+  border-radius: 20px;
+  clear: both;
+  word-wrap: break-word;
+}
+
+/* Patient message */
+.patient {
+  background-color: #e0f7fa;
+  align-self: flex-start;
+  border-bottom-left-radius: 0;
+}
+
+/* Doctor message */
+.doctor {
+  background-color: #c8e6c9;
+  align-self: flex-end;
+  border-bottom-right-radius: 0;
+  text-align: right;
+}
+
+/* Input section */
+.input-section {
+  display: flex;
+}
+
+#doctor-message {
+  flex: 1;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 14px;
+}
+
+button {
+  padding: 10px 15px;
+  margin-left: 10px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Scrollbar styling for chat box */
+#chat-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+#chat-box::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+
+/* Responsive for smaller screens */
+@media screen and (max-width: 500px) {
+  .chat-container {
+    padding: 15px;
+  }
+
+  .message {
+    max-width: 90%;
+    font-size: 13px;
+  }
+
+  #doctor-message {
+    font-size: 13px;
+  }
+
+  button {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Doctor-Patient Chat</title>
+  <link rel="stylesheet" href="doctor_message.css">
+</head>
+<body>
+  <div class="chat-container">
+    <h1>Doctor-Patient Chat</h1>
+
+    <!-- Chat Messages -->
+    <div id="chat-box">
+      <!-- Messages will appear here dynamically -->
+      <div class="message patient">Hello Doctor, I have a headache.</div>
+      <div class="message doctor">Hello! How long have you been feeling this?</div>
+    </div>
+
+    <!-- Input Section for Doctor Reply -->
+    <div class="input-section">
+      <input type="text" id="doctor-message" placeholder="Type your message here...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    function sendMessage() {
+      const input = document.getElementById("doctor-message");
+      const messageText = input.value.trim();
+      if (messageText === "") return;
+
+      const chatBox = document.getElementById("chat-box");
+
+      // Create doctor message div
+      const messageDiv = document.createElement("div");
+      messageDiv.className = "message doctor";
+      messageDiv.textContent = messageText;
+
+      chatBox.appendChild(messageDiv);
+
+      // Scroll to bottom
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      // Clear input
+      input.value = "";
+    }
+  </script>
+</body>
+</html>

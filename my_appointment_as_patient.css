@@ -1,0 +1,201 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* BODY */
+body {
+  background: linear-gradient(135deg, #0ea5e9, #22c55e);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px;
+  transition: 0.5s;
+}
+
+/* 🌙 DARK MODE */
+body.dark {
+  background: linear-gradient(135deg, #020617, #0f172a);
+}
+
+/* 🌙 TOGGLE */
+.dark-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.3);
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  font-size: 18px;
+}
+
+/* CONTAINER */
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* CARD */
+.card {
+  width: 850px;
+  padding: 25px;
+  border-radius: 20px;
+
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(20px);
+
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  color: white;
+
+  animation: fadeIn 0.7s ease;
+}
+
+/* DARK CARD */
+body.dark .card {
+  background: rgba(15,23,42,0.85);
+}
+
+/* TITLE */
+.card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* FILTERS */
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.filters button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.25);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* FILTER COLORS */
+.filters .pending {
+  background: #f59e0b;
+}
+
+.filters .confirmed {
+  background: #22c55e;
+}
+
+.filters .cancelled {
+  background: #ef4444;
+}
+
+/* FILTER HOVER */
+.filters button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+/* APPOINTMENT CARD */
+.appointment-card {
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(10px);
+
+  transition: 0.3s;
+}
+
+/* HOVER EFFECT */
+.appointment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+/* DOCTOR NAME */
+.appointment-card h3 {
+  margin-bottom: 5px;
+}
+
+/* TEXT */
+.appointment-card p {
+  font-size: 14px;
+  margin: 2px 0;
+}
+
+/* STATUS BADGE */
+.status {
+  margin-top: 10px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* STATUS COLORS */
+.status.pending {
+  background: #f59e0b;
+}
+
+.status.confirmed {
+  background: #22c55e;
+}
+
+.status.cancelled {
+  background: #ef4444;
+}
+
+/* BORDER LEFT COLOR */
+.pending-box {
+  border-left: 5px solid #f59e0b;
+}
+
+.confirmed-box {
+  border-left: 5px solid #22c55e;
+}
+
+.cancelled-box {
+  border-left: 5px solid #ef4444;
+}
+
+/* 🌙 DARK MODE TEXT */
+body.dark .appointment-card {
+  background: rgba(30,41,59,0.9);
+  color: #e2e8f0;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Appointments</title>
+
+<link rel="stylesheet" href="my_appointment_as_patient.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- 🌙 DARK MODE -->
+<div class="dark-toggle" onclick="toggleMode()">🌙</div>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>📅 My Appointments</h2>
+
+        <!-- FILTER BUTTONS -->
+        <div class="filters">
+            <button>All</button>
+            <button class="pending">Pending</button>
+            <button class="confirmed">Confirmed</button>
+            <button class="cancelled">Cancelled</button>
+        </div>
+
+        <!-- APPOINTMENT LIST -->
+
+        <!-- CARD 1 -->
+        <div class="appointment-card pending-box">
+            <h3>Dr. Raj Sharma</h3>
+            <p><strong>Specialization:</strong> Cardiologist</p>
+            <p><strong>Date:</strong> 25 March 2026</p>
+            <p><strong>Time:</strong> 10:30 AM</p>
+            <p><strong>Hospital:</strong> City Care Hospital</p>
+
+            <div class="status pending">⏳ Pending</div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="appointment-card confirmed-box">
+            <h3>Dr. Neha Verma</h3>
+            <p><strong>Specialization:</strong> Dentist</p>
+            <p><strong>Date:</strong> 20 March 2026</p>
+            <p><strong>Time:</strong> 02:00 PM</p>
+            <p><strong>Hospital:</strong> Smile Dental Clinic</p>
+
+            <div class="status confirmed">✅ Confirmed</div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="appointment-card cancelled-box">
+            <h3>Dr. Amit Singh</h3>
+            <p><strong>Specialization:</strong> Orthopedic</p>
+            <p><strong>Date:</strong> 18 March 2026</p>
+            <p><strong>Time:</strong> 11:15 AM</p>
+            <p><strong>Hospital:</strong> Ortho Care Center</p>
+
+            <div class="status cancelled">❌ Cancelled</div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- 🌙 SCRIPT -->
+<script>
+function toggleMode() {
+    document.body.classList.toggle("dark");
+}
+</script>
+
+</body>
+</html>

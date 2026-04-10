@@ -1,0 +1,79 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Body */
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+/* Main Box */
+.box {
+  width: 360px;
+  padding: 35px;
+  background: #fff;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Heading */
+.box h1 {
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Card Container */
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Cards */
+.card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+/* Link inside card */
+.card a {
+  display: block;
+  padding: 18px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Doctor Card */
+.doctor-card {
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+}
+
+/* Patient Card */
+.patient-card {
+  background: linear-gradient(135deg, #36d1dc, #5b86e5);
+}
+
+/* Hover Effect */
+.card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .box {
+    width: 90%;
+  }
+}

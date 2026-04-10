@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Doctor Prescription</title>
+  <link rel="stylesheet" href="patient_prescription.recommendation.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Prescription</h1>
+    
+    <div class="patient-doctor-info">
+      <div class="patient-info">
+        <h3>Patient Details</h3>
+        <p>Name: <input type="text" placeholder="Patient Name"></p>
+        <p>Age: <input type="number" placeholder="Age"></p>
+        <p>Gender: 
+          <select>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+        </p>
+        <p>Date: <input type="date"></p>
+      </div>
+      
+      <div class="doctor-info">
+        <h3>Doctor Details</h3>
+        <p>Name: <input type="text" placeholder="Doctor Name"></p>
+        <p>Specialization: <input type="text" placeholder="Specialization"></p>
+      </div>
+    </div>
+
+    <div class="diagnosis">
+      <h3>Diagnosis / Symptoms</h3>
+      <textarea rows="4" placeholder="Write symptoms / diagnosis here"></textarea>
+    </div>
+
+    <div class="prescription">
+      <h3>Medicines</h3>
+      <table>
+        <tr>
+          <th>Medicine</th>
+          <th>Dose</th>
+          <th>Frequency</th>
+          <th>Duration</th>
+        </tr>
+        <tr>
+          <td><input type="text" placeholder="Medicine Name"></td>
+          <td><input type="text" placeholder="Dose"></td>
+          <td><input type="text" placeholder="Frequency"></td>
+          <td><input type="text" placeholder="Duration"></td>
+        </tr>
+      </table>
+      <button onclick="addRow()">Add More Medicine</button>
+    </div>
+
+    <div class="notes">
+      <h3>Additional Notes</h3>
+      <textarea rows="3" placeholder="Any extra instructions..."></textarea>
+    </div>
+
+    <button onclick="window.print()">Print Prescription</button>
+  </div>
+
+  <script>
+    function addRow() {
+      const table = document.querySelector(".prescription table");
+      const newRow = table.insertRow();
+      for (let i = 0; i < 4; i++) {
+        const cell = newRow.insertCell();
+        cell.innerHTML = '<input type="text">';
+      }
+    }
+  </script>
+</body>
+</html>

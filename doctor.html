@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Doctor Login</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="doctor_login_firstpage.css">
+</head>
+
+<body>
+
+<!-- 🌙 Dark Mode Toggle -->
+<div class="toggle-mode" onclick="toggleMode()">🌙</div>
+
+<!-- 🎯 Background Animation -->
+<div class="background">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- 🔐 LOGIN BOX -->
+<div class="login-box" id="loginBox">
+
+  <h2>🩺 Doctor Portal</h2>
+  <p class="subtitle">Secure login for medical professionals</p>
+
+  <div class="input-group">
+    <input type="text" id="userInput" required>
+    <label>Username / Email / Phone</label>
+  </div>
+
+  <div class="input-group">
+    <input type="password" id="password" required>
+    <label>Password</label>
+    <span class="eye" onclick="togglePass()">👁</span>
+  </div>
+
+  <div class="remember">
+    <input type="checkbox"> Remember Me
+  </div>
+
+  <button onclick="handleLogin(this)">Sign In</button>
+
+  <p class="otp" onclick="showOTP()">Login with OTP</p>
+  <p class="otp">Forgot Password?</p>
+
+  <p class="register">
+    New Doctor? <a href="doctor_register_page.html">Register Here</a>
+  </p>
+
+</div>
+
+<!-- 🔐 OTP BOX -->
+<div class="login-box hidden" id="otpBox">
+
+  <h2>🔐 OTP Verification</h2>
+  <p class="subtitle">Enter OTP sent to your Email/Phone</p>
+
+  <div class="input-group">
+    <input type="text" id="otp" required>
+    <label>Enter OTP</label>
+  </div>
+
+  <button onclick="verifyOTP()">Verify OTP</button>
+  <p class="otp" onclick="resendOTP()">Resend OTP</p>
+
+</div>
+
+<!-- 📊 DOCTOR DASHBOARD -->
+<div class="dashboard hidden" id="dashboard">
+
+  <h2>Welcome Doctor 🩺</h2>
+
+  <div class="card"><a href="after_login_doctor _page.html">📅 Appointments</a></div>  
+  <div class="card"><a href="doctor_patient_list.html">📄 Patient List</a></div>
+  <div class="card"><a href="doctor_medical_report.html">📄 Medical Reports</a></div>
+  <div class="card"><a href="doctor_messages.html">💬 Patient Messages</a></div>
+
+  <button onclick="logout()">Logout</button>
+
+</div>
+
+<!-- JS -->
+<script>
+
+/* 🌙 Dark Mode */
+function toggleMode() {
+  document.body.classList.toggle("dark");
+}
+
+/* 👁 Password Toggle */
+function togglePass() {
+  let p = document.getElementById("password");
+  p.type = p.type === "password" ? "text" : "password";
+}
+
+/* 🔐 Login */
+function handleLogin(btn) {
+  const input = document.getElementById("userInput").value;
+
+  btn.innerText = "Verifying...";
+
+  setTimeout(() => {
+    btn.innerText = "Sign In";
+
+    if(input.includes("@") || !isNaN(input)) {
+      alert("OTP sent 📩");
+      showOTP();
+    } else {
+      openDashboard();
+    }
+
+  }, 1200);
+}
+
+/* OTP Screen */
+function showOTP() {
+  document.getElementById("loginBox").classList.add("hidden");
+  document.getElementById("otpBox").classList.remove("hidden");
+}
+
+/* OTP Verify */
+function verifyOTP() {
+  let otp = document.getElementById("otp").value;
+
+  if(otp === "1234") {
+    openDashboard();
+  } else {
+    alert("Invalid OTP ❌");
+  }
+}
+
+/* Open Dashboard */
+function openDashboard() {
+  document.getElementById("otpBox").classList.add("hidden");
+  document.getElementById("loginBox").classList.add("hidden");
+  document.getElementById("dashboard").classList.remove("hidden");
+}
+
+/* Logout */
+function logout() {
+  location.reload();
+}
+
+/* Resend OTP */
+function resendOTP() {
+  alert("OTP Resent 🔁");
+}
+
+</script>
+
+</body>
+</html>

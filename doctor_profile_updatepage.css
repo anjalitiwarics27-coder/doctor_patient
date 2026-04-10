@@ -1,0 +1,247 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* BODY */
+body {
+  background: linear-gradient(135deg, #0ea5e9, #1e3a8a);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  padding: 20px;
+}
+
+/* 🌙 DARK MODE */
+body.dark {
+  background: linear-gradient(135deg, #020617, #0f172a);
+}
+
+/* 🌙 TOGGLE BUTTON */
+.dark-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.25);
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  font-size: 18px;
+  z-index: 1000;
+  transition: 0.3s;
+}
+
+.dark-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* CONTAINER */
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* CARD */
+.card {
+  width: 900px;
+  padding: 30px;
+  border-radius: 20px;
+
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(20px);
+
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  color: white;
+
+  animation: fadeIn 0.8s ease;
+}
+
+/* 🌙 DARK CARD */
+body.dark .card {
+  background: rgba(15,23,42,0.85);
+}
+
+/* PROFILE IMAGE */
+.profile-img {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-img img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  margin-bottom: 8px;
+}
+
+/* DARK IMAGE BORDER */
+body.dark .profile-img img {
+  border: 3px solid #60a5fa;
+}
+
+.profile-img input {
+  font-size: 12px;
+  color: white;
+}
+
+/* TITLE */
+.card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* ROW */
+.row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+/* FORM GROUP */
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* LABEL */
+.form-group label {
+  font-size: 13px;
+  margin-bottom: 5px;
+  color: #e0f2fe;
+}
+
+/* INPUT */
+.form-group input,
+.form-group textarea {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+
+  background: rgba(255,255,255,0.2);
+  color: white;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+/* PLACEHOLDER */
+::placeholder {
+  color: #cbd5f5;
+}
+
+/* FOCUS */
+.form-group input:focus,
+.form-group textarea:focus {
+  background: rgba(255,255,255,0.3);
+  box-shadow: 0 0 10px rgba(14,165,233,0.6);
+}
+
+/* 🌙 DARK INPUT */
+body.dark .form-group input,
+body.dark .form-group textarea {
+  background: rgba(30,41,59,0.8);
+  color: #e2e8f0;
+}
+
+/* 🌙 DARK LABEL */
+body.dark .form-group label {
+  color: #cbd5f5;
+}
+
+/* TEXTAREA */
+textarea {
+  resize: none;
+}
+
+/* CONFIRM */
+.confirm-box {
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+.confirm-box input {
+  margin-right: 6px;
+}
+
+/* BUTTON GROUP */
+.btn-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* BUTTON */
+button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(45deg, #0ea5e9, #2563eb);
+  color: white;
+
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* CANCEL */
+button.cancel {
+  background: rgba(255,255,255,0.2);
+}
+
+/* HOVER */
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(37,99,235,0.6);
+}
+
+/* CANCEL HOVER */
+button.cancel:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* 🌙 DARK BUTTON */
+body.dark button {
+  background: linear-gradient(45deg, #2563eb, #1d4ed8);
+}
+
+body.dark button.cancel {
+  background: rgba(51,65,85,0.6);
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+}

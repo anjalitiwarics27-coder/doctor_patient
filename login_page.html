@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Selection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="login_.page.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif ;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      width: 300px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .doctor {
+      background: #4CAF50;
+    }
+
+    .patient {
+      background: #2196F3;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h2>Select Login Type</h2>
+    <button class="doctor" onclick="goToDoctor()"><a href="doctor.html" text-decoration="none" style="color: white;">Login as Doctor</a></button>
+    <button class="patient" onclick="goToPatient()"><a href="patient.html" text-decoration="none" style="color: white;">Login as Patient</a></button>
+  </div>
+  <script>
+    function goToDoctor() {
+      window.location.href = "doctor_login.html";
+    }
+
+    function goToPatient() {
+      window.location.href = "patient_login.html";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor-Patient Chat</title>
+  <link rel="stylesheet" href="patient_chatbox.css">
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">
+      <h2>Doctor-Patient Chat</h2>
+    </div>
+
+    <div class="chat-box" id="chatBox">
+      <!-- Messages will appear here -->
+    </div>
+
+    <div class="chat-input">
+      <input type="text" id="messageInput" placeholder="Type your message...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    const chatBox = document.getElementById('chatBox');
+    const messageInput = document.getElementById('messageInput');
+
+    function sendMessage() {
+      const message = messageInput.value.trim();
+      if(message === "") return;
+
+      // Add patient message
+      const patientMessage = document.createElement('div');
+      patientMessage.classList.add('message', 'patient');
+      patientMessage.textContent = "Patient: " + message;
+      chatBox.appendChild(patientMessage);
+
+      messageInput.value = "";
+
+      // Simulate doctor reply (you can replace with backend response)
+      setTimeout(() => {
+        const doctorMessage = document.createElement('div');
+        doctorMessage.classList.add('message', 'doctor');
+        doctorMessage.textContent = "Doctor: Got your message!";
+        chatBox.appendChild(doctorMessage);
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }, 1000);
+
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+  </script>
+</body>
+</html>

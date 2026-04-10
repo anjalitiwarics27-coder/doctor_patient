@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctor Registration</title>
+
+<link rel="stylesheet" href="doctor_register_page.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container">
+
+    <!-- STEP 1: CHECK ID -->
+    <div class="card" id="checkBox">
+        <h2>🩺 Doctor Registration</h2>
+        <p>Enter your Email / Phone to check registration</p>
+
+        <input type="text" id="checkInput" placeholder="Enter Email or Phone">
+        <button onclick="checkUser()">Check</button>
+
+        <p id="msg"></p>
+    </div>
+
+    <!-- STEP 2: REGISTER FORM -->
+    <div class="card hidden" id="registerBox">
+
+        <h2>📝 Complete Your Registration</h2>
+
+        <form onsubmit="registerDoctor(event)">
+
+            <input type="text" id="name" placeholder="Full Name" required>
+            <input type="text" id="phone" placeholder="Phone Number" required>
+            <input type="email" id="email" placeholder="Email" required>
+
+            <input type="text" id="specialization" placeholder="Specialization" required>
+            <input type="number" id="experience" placeholder="Experience (Years)" required>
+
+            <input type="text" id="username" placeholder="Create Username" required>
+            <input type="password" id="password" placeholder="Create Password" required>
+
+            <button type="submit">Register</button>
+        </form>
+
+    </div>
+
+    <!-- SUCCESS BOX -->
+    <div class="card hidden" id="successBox">
+        <h2>✅ Registration Successful</h2>
+        <p id="doctorID"></p>
+        <p>Your account has been created successfully!</p>
+    </div>
+
+</div>
+
+<script>
+
+// CHECK USER
+function checkUser() {
+    let input = document.getElementById("checkInput").value;
+    let msg = document.getElementById("msg");
+
+    let users = JSON.parse(localStorage.getItem("doctors")) || [];
+
+    let found = users.find(user => user.contact === input);
+
+    if (found) {
+        msg.innerHTML = "❌ Already Registered!";
+        msg.style.color = "red";
+    } else {
+        msg.innerHTML = "✅ New Doctor, Please Register";
+        msg.style.color = "green";
+
+        document.getElementById("checkBox").classList.add("hidden");
+        document.getElementById("registerBox").classList.remove("hidden");
+    }
+}
+
+// REGISTER DOCTOR
+function registerDoctor(e) {
+    e.preventDefault();
+
+    let doctor = {
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        email: document.getElementById("email").value,
+        specialization: document.getElementById("specialization").value,
+        experience: document.getElementById("experience").value,
+        username: document.getElementById("username").value,
+        password: document.getElementById("password").value,
+        contact: document.getElementById("email").value
+    };
+
+    // Generate ID
+    doctor.id = "DOC" + Math.floor(Math.random() * 10000);
+
+    let users = JSON.parse(localStorage.getItem("doctors")) || [];
+    users.push(doctor);
+
+    localStorage.setItem("doctors", JSON.stringify(users));
+
+    // SHOW SUCCESS
+    document.getElementById("registerBox").classList.add("hidden");
+    document.getElementById("successBox").classList.remove("hidden");
+
+    document.getElementById("doctorID").innerHTML = "🆔 Your Doctor ID: " + doctor.id;
+}
+
+</script>
+
+</body>
+</html>

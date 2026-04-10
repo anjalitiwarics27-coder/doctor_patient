@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patient Medical Report</title>
+  <link rel="stylesheet" href="doctor_medical_report.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Patient Medical Reports</h1>
+
+    <!-- Patient Info Section -->
+    <div class="patient-info">
+      <p><strong>Patient Name:</strong> Rahul Kumar</p>
+      <p><strong>Age:</strong> 42</p>
+      <p><strong>Gender:</strong> Male</p>
+      <p><strong>Contact:</strong> 9988776655</p>
+    </div>
+
+    <!-- Medical Reports Table -->
+    <table>
+      <thead>
+        <tr>
+          <th>Sr. No.</th>
+          <th>Report Name</th>
+          <th>Date</th>
+          <th>Doctor</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Blood Test</td>
+          <td>2026-03-15</td>
+          <td>Dr. Anjali Sharma</td>
+          <td><button onclick="alert('Viewing Blood Test report')">View / Download</button></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>X-Ray Chest</td>
+          <td>2026-03-16</td>
+          <td>Dr. Rahul Verma</td>
+          <td><button onclick="alert('Viewing X-Ray Chest report')">View / Download</button></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Ultrasound</td>
+          <td>2026-03-17</td>
+          <td>Dr. Priya Singh</td>
+          <td><button onclick="alert('Viewing Ultrasound report')">View / Download</button></td>
+        </tr>
+        <!-- More reports can be added -->
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
